@@ -1,10 +1,10 @@
-### Data Pipeline Documentation
+## Data Pipeline Documentation
 
-#### Overview
+### Overview
 
 “A simplified ETL process for extracting, transforming, and loading data from AWS S3 to Snowflake, utilizing Amazon RDS, Apache Spark, Databricks, and Delta tables.”
 
-#### Pipeline Steps
+### Pipeline Steps
 
 1. **Extract from S3**: 
    - Retrieve raw data from AWS S3.
@@ -24,12 +24,13 @@
 6. **Load to Snowflake**: 
    - Transfer the transformed data to Snowflake for analytics.
 
-#### Conclusion
+### Conclusion
 This pipeline effectively transitions data from S3 to Snowflake, optimizing it for analysis and reporting.
 
 
 #### ETL Workflow Diagram 
 
-![Workflow](Diagrams\ER Diagram.png)
+![Workflow](https://raw.githubusercontent.com/Razzkutty/S3-to-Snowflake-ETL-Pipeline/refs/heads/main/Diagrams/ETL%20Workflow.png)
 
 #### ER Diagram 
+![ER Diagram](https://github.com/Razzkutty/S3-to-Snowflake-ETL-Pipeline/blob/main/Diagrams/ER%20Diagram.png)
