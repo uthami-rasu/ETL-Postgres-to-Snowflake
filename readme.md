@@ -1,8 +1,10 @@
-# Data Pipeline Documentation
 
-# Overview
 
-“A simplified ETL process for extracting, transforming, and loading data from AWS S3 to Snowflake, utilizing Amazon RDS, Apache Spark, Databricks, and Delta tables.”
+# ETL Pipeline Documentation
+
+## Overview
+
+The primary objective of this project is to facilitate efficient data transformation from **PostgreSQL** (hosted on **AWS RDS**) to **Snowflake**. By leveraging **Databricks**, we ensure effective data processing and handling, with transformed data being thoroughly cleaned and validated. **Amazon S3** serves as the data lake, providing scalable storage solutions for our raw data. Additionally, **Amazon CloudWatch** is employed for comprehensive logging and monitoring of data flows. The architecture utilizes a **star schema** in Snowflake, enhancing data accessibility and supporting informed decision-making through streamlined analytics.
 
 ## Pipeline Steps
 
@@ -19,14 +21,14 @@
    - Save the retrieved data into Delta tables for reliable storage.
 
 5. **Transform Data**: 
-   - Add columns, remove unnecessary columns, and clean and aggregate data to meet business needs.
+   - Enhance the data by adding and removing columns, and performing cleaning and aggregation to meet business requirements.
 
 6. **Load to Snowflake**: 
    - Transfer the transformed data to Snowflake for analytics.
 
 ## Conclusion
-This pipeline effectively transitions data from S3 to Snowflake, optimizing it for analysis and reporting.
 
+This pipeline effectively transitions data from S3 to Snowflake, optimizing it for analysis and reporting. The structured approach ensures data integrity and accessibility, enabling data-driven decision-making.
 
 ## ETL Workflow Diagram 
 
