@@ -1,38 +1,97 @@
 
-
-# ETL Pipeline Documentation
+---
+# ETL Pipeline: PostgreSQL to Snowflake
 
 ## Overview
+This project demonstrates the creation of a scalable **ETL (Extract, Transform, Load)** pipeline to efficiently process and transform data from **PostgreSQL (AWS RDS)** into **Snowflake**. The pipeline leverages **Databricks**, **AWS S3**, **Amazon CloudWatch**, and **Snowflake**, employing a **star schema** for efficient analytics and reporting.
 
-The primary objective of this project is to facilitate efficient data transformation from **PostgreSQL** (hosted on **AWS RDS**) to **Snowflake**. By leveraging **Databricks**, we ensure effective data processing and handling, with transformed data being thoroughly cleaned and validated. **Amazon S3** serves as the data lake, providing scalable storage solutions for our raw data. Additionally, **Amazon CloudWatch** is employed for comprehensive logging and monitoring of data flows. The architecture utilizes a **star schema** in Snowflake, enhancing data accessibility and supporting informed decision-making through streamlined analytics.
+## Objectives
+- **Efficient Data Transformation**: Clean, aggregate, and format data during the transformation process.
+- **Data Integrity and Quality**: Ensure accurate and consistent data is ready for analysis.
+- **Optimized Performance**: Handle large datasets with scalability.
 
-## Pipeline Steps
+---
 
-1. **Extract from S3**: 
-   - Retrieve raw data from AWS S3.
+## Tools and Technologies
+- **PostgreSQL (AWS RDS)**: For structured data storage and management.
+- **Databricks**: Distributed data processing and transformation.
+- **AWS S3**: Data lake for raw data storage.
+- **Amazon CloudWatch**: Monitoring and logging operations.
+- **Snowflake**: Cloud-based analytics platform with a star schema architecture.
+- **Delta Tables**: Reliable and incremental data processing.
+- **Power BI**: Visualization and reporting of analytics data.
 
-2. **Load to RDS**: 
-   - Store the extracted data in Amazon RDS for structured management.
-
-3. **Read from RDS**: 
-   - Retrieve relevant tables for transformation from Amazon RDS.
-
-4. **Write to Delta Tables**: 
-   - Save the retrieved data into Delta tables for reliable storage.
-
-5. **Transform Data**: 
-   - Enhance the data by adding and removing columns, and performing cleaning and aggregation to meet business requirements.
-
-6. **Load to Snowflake**: 
-   - Transfer the transformed data to Snowflake for analytics.
-
-## Conclusion
-
-This pipeline effectively transitions data from S3 to Snowflake, optimizing it for analysis and reporting. The structured approach ensures data integrity and accessibility, enabling data-driven decision-making.
-
+---
 ## ETL Workflow Diagram 
 
 ![Workflow](https://raw.githubusercontent.com/Razzkutty/S3-to-Snowflake-ETL-Pipeline/refs/heads/main/Diagrams/ETL%20Workflow.png)
 
+## Pipeline Workflow
+
+### 1. Extract Data from AWS S3
+- **Tools**: Databricks, AWS S3, Python
+- **Process**: Retrieve raw data (CSV) from AWS S3.
+
+### 2. Load Data into PostgreSQL (RDS)
+- **Tools**: Databricks, PostgreSQL  
+- **Process**: Load raw data into PostgreSQL for structured storage.
+
+### 3.  Read Data from PostgreSQL and Write to Delta Tables
+- **Tools**: Databricks, PostgreSQL, Delta Lake  
+- **Process**: Establish a JDBC connection to PostgreSQL from Databricks, query relevant data using  PySpark, and save the retrieved data into Delta Tables. This ensures reliable storage with ACID compliance, enabling incremental processing for further transformations.  
+
+### 5. Transform Data
+- **Tools**: Databricks, PySpark, Spark SQL  
+- **Process**: Clean, deduplicate, and transform data based on business requirements.
+
+### 6. Load Transformed Data into Snowflake
+- **Tools**: Databricks, Snowflake  
+- **Process**: Store transformed data in Snowflake using a star schema.
+
+---
+
+## Snowflake Architecture
+- **Star Schema**: Optimized for analytics.  
+  - **Fact Tables**: Aggregate numerical data.  
+  - **Dimension Tables**: Descriptive attributes.
+ 
 ## ER Diagram 
 ![ER Diagram](https://github.com/Razzkutty/S3-to-Snowflake-ETL-Pipeline/blob/main/Diagrams/ER%20Diagram.png)
+
+This architecture ensures fast query performance and simplifies data joins.
+
+---
+
+## Monitoring and Logging
+- **Amazon CloudWatch**: Tracks pipeline stages for errors, anomalies, and performance metrics.  
+- **Features**:
+  - Logs for error resolution.
+  - Monitoring alerts for proactive issue detection.
+
+![Logging](https://raw.githubusercontent.com/uthami-rasu/ETL-Postgres-to-Snowflake/refs/heads/main/Diagrams/function%20logs.png)
+![Logging](https://raw.githubusercontent.com/uthami-rasu/ETL-Postgres-to-Snowflake/refs/heads/main/Diagrams/logs.png)
+
+---
+
+## Outcome and Dashboard
+- **Data Visualization**: A **Power BI dashboard** connects to Snowflake to display KPIs and actionable insights.  
+- **Stakeholder Benefits**: Accurate, up-to-date data for informed decision-making.
+  
+![Dashboard](https://raw.githubusercontent.com/uthami-rasu/ETL-Postgres-to-Snowflake/refs/heads/main/Diagrams/Project-01%20DashBoard.png)
+
+---
+
+## Key Learnings
+- Building scalable ETL pipelines.
+- Integrating cloud platforms like AWS, Databricks, and Snowflake.
+- Using Delta Tables for reliable incremental processing.
+- Implementing star schemas for analytics.
+- Automating workflows and monitoring with CloudWatch.
+
+---
+
+## Contact
+For questions or collaboration, please reach out at uthamirasuv@gmail.com.
+
+
+
