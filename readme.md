@@ -24,7 +24,7 @@ This project demonstrates the creation of a scalable **ETL (Extract, Transform, 
 ---
 ## ETL Workflow Diagram 
 
-![Workflow](https://raw.githubusercontent.com/Razzkutty/S3-to-Snowflake-ETL-Pipeline/refs/heads/main/Diagrams/ETL%20Workflow.png)
+![Workflow](https://raw.githubusercontent.com/uthami-rasu/ETL-Postgres-to-Snowflake/refs/heads/main/Diagrams/Project%20Workflow.png)
 
 ## Pipeline Workflow
 
